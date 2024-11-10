@@ -13,18 +13,18 @@
         <h1>Base64 Encoder/Decoder</h1>
         <div class="section">
             <h2>Text Encoder/Decoder</h2>
-            <textarea id="textInput" placeholder="Enter text here..."></textarea>
+            <textarea id="textInput" placeholder="Put the encoded text here..."></textarea>
             <button onclick="encodeText()">Encode</button>
             <button onclick="decodeText()">Decode</button>
             <button onclick="copyToClipboard('textInput')">Copy</button>
-            <textarea id="textOutput" placeholder="Encoded/Decoded text will appear here..."></textarea>
+            <textarea id="textOutput" placeholder="Encoded/Decoded text will appear here... / Put the decoded text here..."></textarea>
             <button onclick="copyToClipboard('textOutput')">Copy</button>
         </div>
         <div class="section">
             <h2>Image Encoder/Decoder</h2>
             <input type="file" id="imageInput" accept="image/*">
             <button onclick="encodeImage()">Encode</button>
-            <textarea id="base64Input" placeholder="Enter base64 string here..."></textarea>
+            <textarea id="base64Input" placeholder="Encoded/Decoded image will appear here... "></textarea>
             <button onclick="decodeImage()">Decode</button>
             <button onclick="copyToClipboard('base64Input')">Copy</button>
             <div id="imageOutput"></div>
