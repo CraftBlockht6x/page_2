@@ -14,6 +14,7 @@
             <textarea id="textInput" placeholder="Enter text here..."></textarea>
             <button onclick="encodeText()">Encode</button>
             <button onclick="decodeText()">Decode</button>
+            <button onclick="copyToClipboard('textInput')">Copy</button>
             <textarea id="textOutput" placeholder="Encoded/Decoded text will appear here..."></textarea>
             <button onclick="copyToClipboard('textOutput')">Copy</button>
         </div>
@@ -23,53 +24,14 @@
             <button onclick="encodeImage()">Encode</button>
             <textarea id="base64Input" placeholder="Enter base64 string here..."></textarea>
             <button onclick="decodeImage()">Decode</button>
-            <div id="imageOutput"></div>
             <button onclick="copyToClipboard('base64Input')">Copy</button>
+            <div id="imageOutput"></div>
+            <button onclick="copyToClipboard('imageOutput')">Copy</button>
         </div>
     </div>
-    <script src="script.js"></script>
-        <footer>
-        <p>The website is already running <span id="time"></span></p>
-                    <p>&copy; 2024-<span id="currentYear"></span> | Base64 Encoder/Decoder</p>
+    <footer class="footer">
+        <p>&copy; 2024 Your Website Name. All rights reserved.</p>
     </footer>
-     <script>
-  // 获取当前年份
-  const currentYear = new Date().getFullYear();
-  
-  // 将当前年份显示在页面上
-  document.getElementById('currentYear').textContent = currentYear;
-</script>
-        <script>
-function time() {
-    window.setTimeout("time()", 1000);
-    var seconds = 1000
-    var minutes = seconds * 60
-    var hours = minutes * 60
-    var days = hours * 24
-    var years = days * 365
-    var today = new Date()
-    var todayYear = today.getFullYear()
-    var todayMonth = today.getMonth() + 1
-    var todayDate = today.getDate()
-    var todayHour = today.getHours()
-    var todayMinute = today.getMinutes()
-    var todaySecond = today.getSeconds()
-    
-    // 设置网站的建立时间
-    var t1 = Date.UTC(2024, 11, 10, 8, 42, 35)
-    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond)
-    var diff = t2 - t1
-    var diffYears = Math.floor(diff / years)
-    var diffDays = Math.floor((diff / days) - diffYears * 365)
-    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours)
-    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes)
-    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
-        minutes) / seconds)
-        
-    // 将网站运行时间显示到页面上
-    document.getElementById("time").innerHTML = diffYears + " year " + diffDays + " day " + diffHours + " hour " + diffMinutes + " minute " + diffSeconds + " second "
-}
-time()
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
