@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Base64 Encoder/Decoder</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Base64 Encoder/Decoder</h1>
@@ -29,9 +31,50 @@
             <button onclick="copyToClipboard('imageOutput')">Copy</button>
         </div>
     </div>
-    <footer class="footer">
-        <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+    <footer>
+        <p>The website is already running <span id="time"></span></p>
+        <p>&copy; 2024-<span id="currentYear"></span> | Base64 Encoder/Decoder</p>
     </footer>
+    <script>
+        // 获取当前年份
+        const currentYear = new Date().getFullYear();
+        
+        // 将当前年份显示在页面上
+        document.getElementById('currentYear').textContent = currentYear;
+    </script>
+    <script>
+        function time() {
+            window.setTimeout("time()", 1000);
+            var seconds = 1000
+            var minutes = seconds * 60
+            var hours = minutes * 60
+            var days = hours * 24
+            var years = days * 365
+            var today = new Date()
+            var todayYear = today.getFullYear()
+            var todayMonth = today.getMonth() + 1
+            var todayDate = today.getDate()
+            var todayHour = today.getHours()
+            var todayMinute = today.getMinutes()
+            var todaySecond = today.getSeconds()
+            
+            // 设置网站的建立时间
+            var t1 = Date.UTC(2024, 11, 10, 8, 42, 35)
+            var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond)
+            var diff = t2 - t1
+            var diffYears = Math.floor(diff / years)
+            var diffDays = Math.floor((diff / days) - diffYears * 365)
+            var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours)
+            var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes)
+            var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+                minutes) / seconds)
+                
+            // 将网站运行时间显示到页面上
+            document.getElementById("time").innerHTML = diffYears + " year " + diffDays + " day " + diffHours + " hour " + diffMinutes + " minute " + diffSeconds + " second "
+        }
+        time()
+    </script>
     <script src="script.js"></script>
 </body>
+
 </html>
