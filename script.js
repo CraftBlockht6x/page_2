@@ -21,9 +21,31 @@ function encodeImage() {
     reader.readAsDataURL(file);
 }
 
+// ... 其他函数 ...
+
 function decodeImage() {
     const base64String = document.getElementById('base64Input').value;
-    document.getElementById('imageOutput').innerHTML = `<img src="${base64String}" alt="Decoded Image">`;
+    const imageElement = document.getElementById('imageOutput').querySelector('img');
+    if (imageElement) {
+        imageElement.src = base64String;
+    } else {
+        document.getElementById('imageOutput').innerHTML = `<img src="${base64String}" alt="Decoded Image">`;
+    }
+}
+
+function downloadDecodedImage() {
+    const imageElement = document.getElementById('imageOutput').querySelector('img');
+    if (imageElement) {
+        const src = imageElement.src;
+        const link = document.createElement('a');
+        link.href = src;
+        link.download = 'decoded_image.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        alert('Please decode the image first.');
+    }
 }
 
 function copyToClipboard(textBoxId) {
